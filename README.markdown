@@ -1,5 +1,5 @@
 Introduction
-------------
+============
 client_login_client is a very lightweight [ClientLogin][1] authenticator, which
 is useful for people building applications that want to use the [Google Data
 Protocol][2].
@@ -8,7 +8,7 @@ client_login_client was designed to be as painless as possible to use, and only
 depends on [libCURL][3], through which is supports authentication over SSL.
 
 Example
-_______
+=======
 The API was designed to be exceptionally simple. The following is how you'd go
 about authenticating an account and getting the [authentication token][4].
 
