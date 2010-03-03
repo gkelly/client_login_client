@@ -7,7 +7,8 @@ STATIC_TARGET = libclient_login_client.a
 SRC = client_login_client.c
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -fPIC
+CFLAGS = -Wall -fPIC `pkg-config --cflags libcurl`
+LDFLAGS = `pkg-config --libs libcurl`
 
 .PHONY: all clean
 
@@ -17,7 +18,7 @@ clean:
 	rm -f $(SHARED_TARGET) $(STATIC_TARGET) $(OBJ)
 
 $(SHARED_TARGET): $(OBJ)
-	$(CC) -shared $(OBJ) -o $(SHARED_TARGET)
+	$(CC) $(LDFLAGS) -shared $(OBJ) -o $(SHARED_TARGET)
 
 $(STATIC_TARGET): $(OBJ)
 	$(AR) rcs $(STATIC_TARGET) $(OBJ)
