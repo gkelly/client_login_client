@@ -17,10 +17,10 @@ about authenticating an account and getting the [authentication token][4].
     client_login_client_set_password(client, "fake_password");
     client_login_client_set_service(client, "jotspot");
 
-    char *auth_token;
+    char *auth_token = NULL;
     if (client_login_client_authenticate(client, &auth_token)) {
       // Authentication succeeded.
-      delete(auth_token);
+      free(auth_token);
     }
 
 [1]: http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html
